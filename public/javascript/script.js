@@ -4,10 +4,21 @@ window.addEventListener('load',()=>{
 })
 
 //toggle Menu
-var navlist=document.getElementById("navlist")
-function showMenu(){
-    navlist.style.right="0";
+const hamburger=document.querySelector(".hamburger");
+const navmenu= document.querySelector(".nav-menu");
+
+hamburger.addEventListener("click",menu)
+
+function menu(){
+    hamburger.classList.toggle("active");
+    navmenu.classList.toggle("active")
 }
+
+const navlink=document.querySelectorAll(".nav-link");
+
+navlink.forEach(n=> n.addEventListener("click",closeMenu));
+
 function closeMenu(){
-    navlist.style.right="-200px";
+    hamburger.classList.remove("active");
+    navmenu.classList.remove("active");
 }
